@@ -328,7 +328,7 @@ body{
   }   
 
 .counters {
-	background-image: url(../images/SoftOpsHub-Logo.png);
+	background-image: url(../images/MicrosoftTeams-image.png);
     background-size: cover;
     background-attachment: fixed;
     background-repeat: no-repeat;
@@ -459,7 +459,7 @@ body{
 .communicate{
     text-align: center;
     align-items: center;
-    background-image: url(../images/SoftOpsHub-Logo.png);
+    background-image: url(../images/MicrosoftTeams-image.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
