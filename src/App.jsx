@@ -7,6 +7,7 @@ import Service from './pages/Services';
 import Footer from './components/Footer/footer';
 import CloudDevops from './components/Service /CloudDevOps';
 import NotFound from './pages/NotFound'
+import Work from './pages/Work';
 function App() {
   return (
     <Router>
@@ -17,6 +18,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path ="/services" element={<Service />} />
           <Route path ="/services/cloudDevops" element={<CloudDevops />} />
+          <Route path="/work" element={<Work />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>

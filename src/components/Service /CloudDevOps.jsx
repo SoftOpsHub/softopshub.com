@@ -1,5 +1,6 @@
 import React from "react";
 import image from "../../assets/tag.png";
+import Card2 from "../Card/Card2";
 import Toolsets from "../Toolsets/Toolsets";
 export default function CloudDevOps() {
   return (
@@ -55,6 +56,7 @@ export default function CloudDevOps() {
               <img src="/icons/azure-api.png" alt="Azure API Mgmt" className="h-8" />
             </div>
           </div>
+    <Card2 />
         </div>
       </div>
     </div>
