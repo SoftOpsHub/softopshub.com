@@ -43,7 +43,7 @@ const Navbar = () => {
               </div>
             </div>
             <a href="/work" className={getLinkClass('/work')}>Our Work</a>
-            <a href="/company" className={getLinkClass('/company')}>Company</a>
+            <a href="/team" className={getLinkClass('/team')}>Company</a>
             <a href="/Careers" className={getLinkClass('/careers')}>Careers</a>
           </div>
 
