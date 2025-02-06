@@ -68,7 +68,7 @@ export default function Team() {
               <h3 className="mt-4 text-xl font-bold">{member.name}</h3>
               <p className="text-gray-600">{member.title}</p>
             </div>
-            <div className="absolute w-full h-40 bg-orange-500 text-white rounded-2xl flex items-center justify-center p-4 text-sm transform rotate-y-200 [backface-visibility:hidden]">
+            <div className="absolute w-full h-40 bg-gray-500 text-white rounded-2xl flex items-center justify-center p-4 text-sm transform rotate-y-200 [backface-visibility:hidden]">
               {member.description}
             </div>
           </div>

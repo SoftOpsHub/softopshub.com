@@ -4,6 +4,5 @@ export default defineConfig({
   plugins: [
     tailwindcss(),
   ],
-    base: 'https://softopshub.com/'
-
+  base: 'https://softopshub.com/'
 })
