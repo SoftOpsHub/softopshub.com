@@ -34,7 +34,7 @@ const Navbar = () => {
             <div className="relative group">
               <button onClick={() => setIsServicesOpen(!isServicesOpen)} className="flex items-center space-x-1">
                 <span className={getLinkClass('/services')}>Services</span>
-                <FaChevronDown className="text-sm transition-transform group-hover:rotate-180" />
+                <FaChevronDown className="text-sm transition-transform group-hover:rotate-200" />
               </button>
               <div className={`absolute left-0 right-full mt-2 w-md bg-white shadow-lg rounded-md p-4 transition-opacity duration-300 ${isServicesOpen ? 'opacity-100 visible' : 'opacity-0 invisible'}`}>
                 <a href="/services/cloudDevops" className="block px-4 py-2 hover:bg-gray-100">Cloud & Devops </a>
@@ -73,7 +73,7 @@ const Navbar = () => {
           <a href="/" className="block py-2 px-4">Home</a>
           <div className="md:hidden relative">
             <button onClick={() => setIsServicesOpen(!isServicesOpen)} className="flex items-center space-x-1">
-              <span className="text-gray-800 left-1">Services</span>
+              <span className="text-gray-800 left-0">Services</span>
               <FaChevronDown className="text-sm transition-transform group-hover:rotate-180" />
             </button>
             {isServicesOpen && (
