@@ -1,29 +1,42 @@
 import React from "react";
+import {
+  SiKubernetes,
+  SiDocker,
+  SiAnsible,
+  // SiAmazonaws,
+  SiApachekafka,
+  SiGrafana,
+  SiInfluxdb,
+  SiElasticsearch,
+  SiApachespark,
+  // SiMicrosoftazure,
+} from "react-icons/si";
+import { FaAws, FaKey } from "react-icons/fa";
 
 const tools = [
-  { name: "Kubernetes", logo: "/logos/kubernetes.png" },
-  { name: "Docker", logo: "/logos/docker.png" },
-  { name: "Ansible", logo: "/logos/ansible.png" },
-  { name: "Ambassador", logo: "/logos/ambassador.png" },
-  { name: "Amazon EKS", logo: "/logos/amazon-eks.png" },
-  { name: "Amazon ECS", logo: "/logos/amazon-ecs.png" },
-  { name: "Azure Kubernetes", logo: "/logos/azure-kubernetes.png" },
-  { name: "Azure API Mgmt", logo: "/logos/azure-api.png" },
-  { name: "Azure Container Instances", logo: "/logos/azure-container.png" },
-  { name: "Amazon API Gateway", logo: "/logos/amazon-api.png" },
-  { name: "InfluxDB", logo: "/logos/influxdb.png" },
-  { name: "ELK", logo: "/logos/elk.png" },
-  { name: "Grafana", logo: "/logos/grafana.png" },
-  { name: "AWS Budgets", logo: "/logos/aws-budgets.png" },
-  { name: "AWS Cost Explorer", logo: "/logos/aws-cost.png" },
-  { name: "Amazon Cloud Watch", logo: "/logos/amazon-cloudwatch.png" },
-  { name: "Azure Key Vault", logo: "/logos/azure-key.png" },
-  { name: "Cassandra", logo: "/logos/cassandra.png" },
-  { name: "Druid", logo: "/logos/druid.png" },
-  { name: "Amazon MSK", logo: "/logos/amazon-msk.png" },
-  { name: "Kafka", logo: "/logos/kafka.png" },
-  { name: "Apache Spark", logo: "/logos/spark.png" },
-  { name: "AWS Data Pipeline", logo: "/logos/aws-data.png" }
+  { name: "Kubernetes", icon: <SiKubernetes className="text-blue-500 text-4xl" /> },
+  { name: "Docker", icon: <SiDocker className="text-blue-400 text-4xl" /> },
+  { name: "Ansible", icon: <SiAnsible className="text-red-500 text-4xl" /> },
+  // { name: "Ambassador", icon: <SiAmazonaws className="text-yellow-500 text-4xl" /> }, // Placeholder
+  { name: "Amazon EKS", icon: <FaAws className="text-yellow-500 text-4xl" /> }, // Placeholder
+  { name: "Amazon ECS", icon: <FaAws className="text-yellow-500 text-4xl" /> }, // Placeholder
+  // { name: "Azure Kubernetes", icon: <SiMicrosoftazure className="text-blue-600 text-4xl" /> },
+  // { name: "Azure API Mgmt", icon: <SiMicrosoftazure className="text-blue-600 text-4xl" /> },
+  // { name: "Azure Container Instances", icon: <SiMicrosoftazure className="text-blue-600 text-4xl" /> },
+  { name: "Amazon API Gateway", icon: <FaAws className="text-yellow-500 text-4xl" /> }, // Placeholder
+  { name: "InfluxDB", icon: <SiInfluxdb className="text-green-500 text-4xl" /> },
+  { name: "ELK", icon: <SiElasticsearch className="text-orange-500 text-4xl" /> },
+  { name: "Grafana", icon: <SiGrafana className="text-orange-500 text-4xl" /> },
+  { name: "AWS Budgets", icon: <FaAws className="text-yellow-500 text-4xl" /> }, // Placeholder
+  { name: "AWS Cost Explorer", icon: <FaAws className="text-yellow-500 text-4xl" /> }, // Placeholder
+  { name: "Amazon Cloud Watch", icon: <FaAws className="text-yellow-500 text-4xl" /> }, // Placeholder
+  { name: "Azure Key Vault", icon: <FaKey className="text-blue-600 text-4xl" /> },
+  // { name: "Cassandra", icon: <SiAmazonaws className="text-blue-500 text-4xl" /> }, // Placeholder
+  // { name: "Druid", icon: <SiAmazonaws className="text-blue-500 text-4xl" /> }, // Placeholder
+  // { name: "Amazon MSK", icon: <SiAmazonaws className="text-blue-500 text-4xl" /> }, // Placeholder
+  { name: "Kafka", icon: <SiApachekafka className="text-black text-4xl" /> },
+  { name: "Apache Spark", icon: <SiApachespark className="text-orange-500 text-4xl" /> },
+  { name: "AWS Data Pipeline", icon: <FaAws className="text-yellow-500 text-4xl" /> }, // Placeholder
 ];
 
 const Toolsets = () => {
@@ -32,12 +45,9 @@ const Toolsets = () => {
       <h2 className="text-3xl font-semibold mb-6">Toolsets</h2>
       <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 px-4 md:px-12">
         {tools.map((tool, index) => (
-          <div
-            key={index}
-            className="flex items-center justify-center bg-white shadow-md p-3 rounded-lg"
-          >
-            <img src={tool.logo} alt={tool.name} className="h-6 mr-2" />
-            <span className="text-sm font-medium">{tool.name}</span>
+          <div key={index} className="flex flex-col items-center bg-white shadow-md p-4 rounded-lg">
+            {tool.icon}
+            <span className="text-sm font-medium mt-2">{tool.name}</span>
           </div>
         ))}
       </div>
