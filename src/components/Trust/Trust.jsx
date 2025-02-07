@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';  // Import Heroicons
+import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline'; 
+import Image from '../../assets/parlapp.png';
+import Image1 from '../../assets/microsoft-logo.jpg';
 
 const clients = [
-  { name: "Parlapp", logo: "src/assets/parlapp.png" },
-  { name: "Microsoft", logo: "src/assets/microsoft-logo.jpg" },
+  { name: "Parlapp", logo: [Image] },
+  { name: "Microsoft", logo: [Image1] },
 ];
 
 const devOpsDescriptions = [

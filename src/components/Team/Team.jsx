@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import Image1 from "../../assets/download.jpeg";
+import Image2 from "../../assets/download (1).jpeg";
+import Image3 from "../../assets/man.jpg";
+import Image4 from "../../assets/images.jpeg";
+import Image5 from "../../assets/img3.jpeg";
+import Image6 from "../../assets/img4.png";
 
 export default function Team() {
   const teamMembers = [
@@ -16,35 +21,35 @@ export default function Team() {
       title: "CTO",
       description:
         "Zishan, a technology aficionado and accomplished leader, brings over a decade of in-depth software development experience...",
-      image: "src/assets/download.jpeg",
+      image: [Image2],
     },
     {
       name: "Fahad Munawar Jan",
       title: "VP Engineering",
       description:
         "Fahad is a seasoned professional with over 18 years of experience in the global landscape. His expertise spans strategic planning...",
-      image: "src/assets/download (1).jpeg",
+      image: [Image3],
     },
     {
       name: "John Doe",
       title: "COO",
       description:
         "John is an operational strategist with years of experience in scaling businesses and optimizing performance...",
-      image: "src/assets/man.jpg",
+      image: [Image4],
     },
     {
       name: "Rahat Ali ",
       title: "Devops Engineering",
       description:
         "Fahad is a seasoned professional with over 18 years of experience in the global landscape. His expertise spans strategic planning...",
-      image: "src/assets/img3.jpeg",
+      image: [Image5],
     },
     {
       name: "Owais Anjum",
       title: "CEO",
       description:
         "Owais is a Silicon Valley veteran and a serial entrepreneur with a 25-year track record in technology and leadership...",
-      image: "src/assets/img4.png",
+      image: [Image6],
     },
   ];
 

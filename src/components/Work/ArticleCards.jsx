@@ -1,35 +1,39 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-
+import image from "../../assets/richy-great-MAYEkmn7G6E-unsplash.jpg"
+import image1 from "../../assets/Test Automation.jpg"
+import image2 from "../../assets/ Microservices with Kubernetes.jpg"
+import image3 from "../../assets/CI.CD Pipelines.jpg"
+import image4 from "../../assets/Optimizing.jpg"
 const articles = [
   {
     title: "How GitHub Actions, Kustomize, And ArgoCD Revolutionized Controlled Deployment",
     category: "DevOps",
-    image: "src/assets/richy-great-MAYEkmn7G6E-unsplash.jpg",
+    image: [image],
     link: "/article/devops",
   },
   {
     title: "95% Faster Testing Through Automation Of Performance & Functional Tests For A Streaming Platform",
     category: "Test Automation | Gen AI",
-    image: "src/assets/Test Automation.jpg",
+    image: [image1],
     link: "/article/test-automation",
   },
   {
     title: "Scaling Microservices with Kubernetes and Istio",
     category: "Cloud & DevOps",
-    image: "src/assets/ Microservices with Kubernetes.jpg",
+    image: [image2],
     link: "/article/kubernetes",
   },
   {
     title: "Enhancing CI/CD Pipelines with AI-Driven Insights",
     category: "CI/CD | AI",
-    image: "src/assets/CI.CD Pipelines.jpg",
+    image: [image3],
     link: "/article/cicd-ai",
   },
   {
     title: "Optimizing Frontend Performance for Large Scale Applications",
     category: "Web Performance",
-    image: "src/assets/Optimizing.jpg",
+    image: [image4],
     link: "/article/web-performance",
   },
 ];
