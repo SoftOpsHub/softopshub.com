@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { SiKubernetes, SiDocker, SiAnsible } from "react-icons/si";
-import { FaServer } from "react-icons/fa"; // Placeholder for Ambassador
+import { FaServer } from "react-icons/fa"; 
 import image from "../../assets/tag.png";
 import Card2 from "../Card/Card2";
 import Toolsets from "../Toolsets/Toolsets";
@@ -11,15 +11,17 @@ export default function CloudDevOps() {
 
   const content = {
     "Data Pipelines, Big Data & Analytics Service": "Explore data pipelines, big data processing, and real-time analytics solutions leveraging modern cloud infrastructure.",
-    "Continuous Integration Continuous Deployment Service": "Learn about automated CI/CD workflows, zero-downtime deployments, and scalable DevOps solutions for high-performance applications."
+    "Continuous Integration Continuous Deployment Service": "Learn about automated CI/CD workflows, zero-downtime deployments, and scalable DevOps solutions for high-performance applications.",
+    "DevOps Infrastructure and Automation Service": "Learn about DevOps best practices, automation tools, and tools for managing infrastructure and applications.",
+    "Cloud Native Application Development Service": "Understand the principles of cloud-native application development, including microservices, containerization, and serverless architecture.",
+    "Observability": "Learn about observability tools, metrics, and dashboards for monitoring and analyzing cloud infrastructure, applications, and services."
   };
 
-  // Mapping image names to icons
   const iconMap = {
     "kubernetes": <SiKubernetes className="text-blue-500 text-4xl" />,
     "docker": <SiDocker className="text-blue-400 text-4xl" />,
     "ansible": <SiAnsible className="text-red-500 text-4xl" />,
-    "ambassador": <FaServer className="text-gray-600 text-4xl" />, // Placeholder for Ambassador
+    "ambassador": <FaServer className="text-gray-600 text-4xl" />, 
   };
 
   return (
@@ -36,13 +38,12 @@ export default function CloudDevOps() {
             {Object.keys(content).map((item) => (
               <li
                 key={item}
-                className={`cursor-pointer transition-all duration-300 ${selected === item ? "text-teal-500 font-bold scale-105" : "hover:text-teal-500"}`}
+                className={`cursor-pointer transition-all duration-100 ${selected === item ? "text-teal-500 font-bold scale-105" : "hover:text-teal-500"}`}
                 onClick={() => setSelected(selected === item ? null : item)}
               >
                 {item}
               </li>
             ))}
-            <li>Observability</li>
           </ul>
         </div>
 
