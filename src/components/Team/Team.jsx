@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import Image1 from "../../assets/download.jpeg";
 
 export default function Team() {
   const teamMembers = [
@@ -8,7 +9,7 @@ export default function Team() {
       title: "CEO",
       description:
         "Owais is a Silicon Valley veteran and a serial entrepreneur with a 25-year track record in technology and leadership...",
-      image: "src/assets/images.jpeg",
+      image:[Image1],
     },
     {
       name: "Zishan Iqbal",
