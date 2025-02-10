@@ -9,9 +9,11 @@ const clients = [
 ];
 
 const devOpsDescriptions = [
-  "DevOps improves collaboration between development and operations.",
-  "Continuous integration and continuous delivery streamline deployment.",
-  "Automating workflows leads to faster and more reliable releases.",
+  "DevOps improves collaboration between development and operations.Developers and operations engineers work together throughout the software lifecycle, from planning and coding to testing, deployment, and monitoring.",
+
+  "CI/CD automates the process of integrating code changes, running tests, and deploying applications, reducing manual intervention and the risk of errors. Continuous Integration (CI) ensures that new code is merged frequently and tested automatically, catching bugs early",
+
+  "By automating repetitive tasks such as testing, building, and deployment, teams can reduce human errors, increase consistency, and speed up release cycles. Automation enables predictable and standardized workflows",
 ];
 
 const Trust = () => {
@@ -29,7 +31,7 @@ const Trust = () => {
   };
 
   return (
-    <div className="py-16 bg-gray-50">
+    <div className="py-16 bg-white-50">
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
         <div className="flex flex-col items-center md:items-start space-y-4">
           <motion.h2
@@ -64,15 +66,14 @@ const Trust = () => {
           </div>
         </div>
 
-        <div className="flex flex-col justify-center items-center space-y-4 p-6 bg-white rounded-lg font-medium shadow-lg relative overflow-hidden">
-          <h3 className="text-2xl font-semibold text-gray-800">DevOps</h3>
+        <div className="flex flex-col justify-center items-center space-y-4 p-6 bg-white rounded-3xl font-bold shadow-lg relative overflow-hidden ">
           <AnimatePresence mode="wait">
             <motion.p
               key={currentSlide}
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.5 }}
+              transition={{ duration: 1.5 }}
               className="text-lg text-gray-600 text-center"
             >
               {devOpsDescriptions[currentSlide]}
