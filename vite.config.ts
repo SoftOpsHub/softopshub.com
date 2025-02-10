@@ -1,7 +1,16 @@
-import { defineConfig } from 'vite'
-import tailwindcss from '@tailwindcss/vite'
-export default defineConfig({
-  plugins: [
-    tailwindcss(),
-  ],
-})
+import { defineConfig } from 'vite';
+import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
+import tailwindcss from '@tailwindcss/vite';
+
+export default defineConfig(() => {
+  return {
+    plugins: [
+      ViteImageOptimizer({
+        jpeg: {
+          quality: 80,
+        },
+      }),
+      tailwindcss(),
+    ],
+  };
+});

@@ -5,19 +5,21 @@ import { FaChevronDown } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
 import logo from '../../assets/softopshub.png';
 import image from '../../assets/success-2917048_1280.jpg';
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
   const location = useLocation();
+
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
   };
 
   const getLinkClass = (path) => {
     return location.pathname === path
-      ? 'text-green-500 underline decoration-2 decoration-green-500 decoration-offset-4 '
-      : 'hover:text-green-500 underline decoration-2 decoration-transparent hover:decoration-green-500 decoration-offset-4 ';
+      ? 'text-green-500 underline decoration-2 decoration-green-500 decoration-offset-4'
+      : 'hover:text-green-500 underline decoration-2 decoration-transparent hover:decoration-green-500 decoration-offset-4';
   };
 
   return (
@@ -25,11 +27,14 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
-            <img src={logo} alt="Logo" className="h-25 w-50" />
+            <a href="/">
+              <img src={logo} alt="Logo" className="h-25 w-50" />
+            </a>
           </div>
+
           <div className="hidden md:flex space-x-8 font-semibold items-center">
             <a href="/" className={getLinkClass('/')}>Home</a>
-            
+
             <div className="group">
               <button onClick={() => setIsServicesOpen(!isServicesOpen)} className="flex items-center space-x-1">
                 <span className={getLinkClass("/services")}>Services</span>
@@ -38,11 +43,13 @@ const Navbar = () => {
 
               <AnimatePresence>
                 {isServicesOpen && (
-                  <motion.div 
+                  <motion.div
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -10 }}
                     transition={{ duration: 0.3 }}
+                    onMouseLeave={() => setIsServicesOpen(false)}
+                    // onMouseEnter={() => setIsServicesOpen(true)}
                     className="absolute left-0 w-380 top-full bg-white shadow-lg rounded-lg overflow-hidden"
                   >
                     <div className="max-w-7xl mx-auto px-6 lg:px-8 py-6 grid grid-cols-3 gap-6">
@@ -88,6 +95,35 @@ const Navbar = () => {
             <button onClick={() => setIsOpen(!isOpen)} className="text-gray-800 focus:outline-none">☰</button>
           </div>
         </div>
+
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.3 }}
+              className="md:hidden"
+              
+            >
+              <div className="flex flex-col space-y-4 mt-4">
+                <a href="/" className={getLinkClass('/')}>Home</a>
+                <a href="/services" className={getLinkClass('/services')}>Services</a>
+                
+
+
+
+                <a href="/work" className={getLinkClass('/work')}>Our Work</a>
+                <a href="/team" className={getLinkClass('/team')}>Company</a>
+                <a href="/Careers" className={getLinkClass('/careers')}>Careers</a>
+                <a href="/contact" className="bg-orange-500 text-white px-4 py-2 rounded-md hover:bg-orange-600">Contact Us</a>
+                {/* <button onClick={toggleDarkMode} className={`focus:outline-none ${darkMode ? 'text-yellow-400' : 'text-gray-800'}`}>
+                  {darkMode ? <MdWbSunny size={24} /> : <MdNightsStay size={24} />}
+                </button> */}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </nav>
   );
