@@ -50,7 +50,7 @@ const Navbar = () => {
                     transition={{ duration: 0.3 }}
                     onMouseLeave={() => setIsServicesOpen(false)}
                     // onMouseEnter={() => setIsServicesOpen(true)}
-                    className="absolute left-0 w-380 top-full bg-white shadow-lg rounded-lg overflow-hidden"
+                    className="absolute left-0 w-full top-full bg-white shadow-lg rounded-lg overflow-hidden"
                   >
                     <div className="max-w-7xl mx-auto px-6 lg:px-8 py-6 grid grid-cols-3 gap-6">
                       <div>
