@@ -10,9 +10,7 @@ const clients = [
 
 const devOpsDescriptions = [
   "DevOps improves collaboration between development and operations.Developers and operations engineers work together throughout the software lifecycle, from planning and coding to testing, deployment, and monitoring.",
-
   "CI/CD automates the process of integrating code changes, running tests, and deploying applications, reducing manual intervention and the risk of errors. Continuous Integration (CI) ensures that new code is merged frequently and tested automatically, catching bugs early",
-
   "By automating repetitive tasks such as testing, building, and deployment, teams can reduce human errors, increase consistency, and speed up release cycles. Automation enables predictable and standardized workflows",
 ];
 
@@ -31,7 +29,7 @@ const Trust = () => {
   };
 
   return (
-    <div className="py-16 bg-white-50">
+    <div className="py-16 bg-white-50 relative">
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
         <div className="flex flex-col items-center md:items-start space-y-4">
           <motion.h2
@@ -66,7 +64,7 @@ const Trust = () => {
           </div>
         </div>
 
-        <div className="flex flex-col justify-center items-center space-y-4 p-6 bg-white rounded-3xl font-bold shadow-lg relative overflow-hidden ">
+        <div className="flex flex-col justify-center items-center space-y-4 p-6 bg-white rounded-3xl font-bold shadow-lg relative overflow-hidden">
           <AnimatePresence mode="wait">
             <motion.p
               key={currentSlide}
@@ -74,11 +72,21 @@ const Trust = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 1.5 }}
-              className="text-lg text-gray-600 text-center"
+              className="text-lg text-gray-600 text-center hover:text-gray-900 transition-colors"
             >
               {devOpsDescriptions[currentSlide]}
             </motion.p>
           </AnimatePresence>
+          <div className="absolute bottom-2 flex space-x-2">
+            {devOpsDescriptions.map((_, index) => (
+              <motion.div
+                key={index}
+                className={`h-2 w-2 rounded-full ${index === currentSlide ? 'bg-orange-500 scale-125' : 'bg-gray-300'}`}
+                animate={{ opacity: index === currentSlide ? 1 : 0.5 }}
+                transition={{ duration: 0.5 }}
+              ></motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
