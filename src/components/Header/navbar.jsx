@@ -54,13 +54,13 @@ const Navbar = () => {
                   >
                     <div className="max-w-7xl mx-auto px-6 lg:px-8 py-6 grid grid-cols-3 gap-6">
                       <div>
-                        <h3 className=" text-gray-700 font-extrabold">Solutions</h3>
+                        <h3 className=" text-green-700 font-extrabold ">Solutions</h3>
                         <a href="/services/cloudDevops" className="block px-4 py-2 hover:bg-gray-100">Cloud & DevOps</a>
                         <a href="/services/cicd" className="block px-4 py-2 hover:bg-gray-100">CI/CD Automation</a>
                         <a href="/services/iac" className="block px-4 py-2 hover:bg-gray-100">IaC (Infrastructure as Code)</a>
                       </div>
                       <div>
-                        <h3 className="font-extrabold text-gray-700">More</h3>
+                        <h3 className="font-extrabold text-green-700">More</h3>
                         <a href="/services/consulting" className="block px-4 py-2 hover:bg-gray-100">Consulting</a>
                         <a href="/services/training" className="block px-4 py-2 hover:bg-gray-100">Training</a>
                         <a href="/services/support" className="block px-4 py-2 hover:bg-gray-100">Support & Maintenance</a>
@@ -86,7 +86,7 @@ const Navbar = () => {
           </div>
 
           <div className="hidden md:flex">
-            <button onClick={toggleDarkMode} className={`focus:outline-none ${darkMode ? 'text-yellow-400' : 'text-gray-800'}`}>
+            <button onClick={toggleDarkMode} className={`focus:outline-none ${darkMode ? 'text-red-700' : 'text-gray-800'}`}>
               {darkMode ? <MdWbSunny size={24} /> : <MdNightsStay size={24} />}
             </button>
           </div>

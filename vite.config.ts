@@ -7,13 +7,13 @@ export default defineConfig(() => {
     plugins: [
       ViteImageOptimizer({
         jpeg: {
-          quality: 80,
+          quality: 60,
         },
         png : {
-          quality: 80,
+          quality: 60,
         } , 
         jpg: {
-          quality: 80,
+          quality: 60,
         }
         
       
