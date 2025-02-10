@@ -8,10 +8,15 @@ export default defineConfig(() => {
       ViteImageOptimizer({
         jpeg: {
           quality: 80,
+        },
         png : {
           quality: 80,
-        }  
-        },
+        } , 
+        jpg: {
+          quality: 80,
+        }
+        
+      
       }),
       tailwindcss(),
     ],
