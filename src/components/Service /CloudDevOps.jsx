@@ -5,6 +5,7 @@ import { FaServer } from "react-icons/fa";
 import image from "../../assets/tag.png";
 import Card2 from "../Card/Card2";
 import Toolsets from "../Toolsets/Toolsets";
+import Banner from "../Banner/Banner";
 
 export default function CloudDevOps() {
   const [selected, setSelected] = useState(null);
@@ -26,9 +27,7 @@ export default function CloudDevOps() {
 
   return (
     <div>
-      <div className="w-full">
-        <img src={image} alt="Cloud & DevOps Banner" className="w-full object-cover" />
-      </div>
+     <Banner/ >
 
       <div className="flex flex-col lg:flex-row p-6 md:p-8 bg-white">
         <div className="w-full lg:w-1/4 border-r pr-6 mb-6 lg:mb-0">

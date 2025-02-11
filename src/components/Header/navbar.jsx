@@ -50,14 +50,14 @@ const Navbar = () => {
                     transition={{ duration: 0.3 }}
                     onMouseLeave={() => setIsServicesOpen(false)}
                     // onMouseEnter={() => setIsServicesOpen(true)}
-                    className="absolute left-0 w-full top-full bg-white shadow-lg rounded-lg overflow-hidden"
+                    className="absolute left-0 w-full top-full bg-white shadow-lg rounded-lg overflow-hidden course-mouse-over"
                   >
                     <div className="max-w-7xl mx-auto px-6 lg:px-8 py-6 grid grid-cols-3 gap-6">
                       <div>
                         <h3 className=" text-green-700 font-extrabold ">Solutions</h3>
                         <a href="/services/cloudDevops" className="block px-4 py-2 hover:bg-gray-100">Cloud & DevOps</a>
-                        <a href="/services/cicd" className="block px-4 py-2 hover:bg-gray-100">CI/CD Automation</a>
-                        <a href="/services/iac" className="block px-4 py-2 hover:bg-gray-100">IaC (Infrastructure as Code)</a>
+                        <a href="/pipelines" className="block px-4 py-2 hover:bg-gray-100">CI/CD Automation</a>
+                        <a href="/infrastructure" className="block px-4 py-2 hover:bg-gray-100">IaC (Infrastructure as Code)</a>
                       </div>
                       <div>
                         <h3 className="font-extrabold text-green-700">More</h3>
