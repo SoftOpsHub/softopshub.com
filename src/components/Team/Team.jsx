@@ -30,14 +30,14 @@ const teamMembers = [
     email: "mailto:zishan@example.com"
   },
   {
-    name: "Muhammad Muheeb Javed",
+    name: "Muhammad Usman",
     title: "DevOps Engineer",
     description:
-      "Highly motivated and diligent fresh Computer Science graduate with strong programming skills, keen interest in software development and a passion for making a positive impact in technology....",
-    image: Image3,
-    linkedin: "https://www.linkedin.com/in/muhammad-muheeb-javed-8a8828244/",
+      "DevOps | Azure | Terraform | Kubernetes",
+    image: Image6,
+    linkedin: "https://www.linkedin.com/in/musman268/",
     twitter: "#",
-    email: "mailto:fahad@example.com"
+    email: "mailto:owais@example.com"
   },
   {
     name: "Sharjeel Shahihd",
@@ -59,15 +59,16 @@ const teamMembers = [
     twitter: "#",
     email: "mailto:rahat@example.com"
   },
+
   {
-    name: "Muhammad Usman",
+    name: "Muhammad Muheeb Javed",
     title: "DevOps Engineer",
     description:
-      "DevOps | Azure | Terraform | Kubernetes",
-    image: Image6,
-    linkedin: "https://www.linkedin.com/in/musman268/",
+      "Highly motivated and diligent fresh Computer Science graduate with strong programming skills, keen interest in software development and a passion for making a positive impact in technology....",
+    image: Image3,
+    linkedin: "https://www.linkedin.com/in/muhammad-muheeb-javed-8a8828244/",
     twitter: "#",
-    email: "mailto:owais@example.com"
+    email: "mailto:fahad@example.com"
   },
   
 ];
