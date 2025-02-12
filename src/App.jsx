@@ -13,6 +13,7 @@ import Article from './components/article/DeploymentGuide'
 import Scaling from './components/Scaling/ScalingGuide'
 import Pipelines from './components/Pipelines/Pipelines'
 import InfrastructureAsCode from './components/InfrastructureAsCode/InfrastructureAsCode'
+import CareerPage from './pages/Career'
 function App() {
   return (
     <Router>
@@ -29,6 +30,7 @@ function App() {
           <Route path="/scaling" element={<Scaling />} />
           <Route path="/pipelines" element={<Pipelines />} />
           <Route path="/infrastructure" element={<InfrastructureAsCode />} />
+          <Route path="CareerPage" element={<CareerPage />}/>
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>

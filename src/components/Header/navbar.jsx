@@ -78,7 +78,7 @@ const Navbar = () => {
 
             <a href="/work" className={getLinkClass('/work')}>Our Work</a>
             <a href="/team" className={getLinkClass('/team')}>Company</a>
-            <a href="/Careers" className={getLinkClass('/careers')}>Careers</a>
+            <a href="/CareerPage" className={getLinkClass('/careers')}>Careers</a>
           </div>
 
           <div className="hidden md:flex">
