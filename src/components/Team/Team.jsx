@@ -4,7 +4,7 @@ import { FaLinkedin, FaTwitter, FaEnvelope } from "react-icons/fa";
 import Image1 from "../../assets/ammar.jpeg";
 import Image2 from "../../assets/arbab.jpeg";
 import Image3 from "../../assets/muheeb.jpeg";
-import Image4 from "../../assets/sharjeel2.jpeg";
+import Image4 from "../../assets/sharjeel.jpeg";
 import Image5 from "../../assets/img3.jpeg";
 import Image6 from "../../assets/img4.jpeg";
 
@@ -69,6 +69,7 @@ const teamMembers = [
     twitter: "#",
     email: "mailto:owais@example.com"
   },
+  
 ];
 
 const TeamMemberCard = ({ name, title, description, image, linkedin, twitter, email }) => {
@@ -82,7 +83,7 @@ const TeamMemberCard = ({ name, title, description, image, linkedin, twitter, em
     >
       <div className="relative w-full h-96">
         <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center bg-white group-hover:opacity-0 transition-opacity duration-500">
-          <img src={image} alt={name} className="w-32 h-32 rounded-full object-cover mb-4" />
+          <img src={image} alt={name} className="w-52 h-82 rounded-3xl object-cover mb-4" />
           <h3 className="text-xl font-bold">{name}</h3>
           <p className="text-gray-600">{title}</p>
         </div>
