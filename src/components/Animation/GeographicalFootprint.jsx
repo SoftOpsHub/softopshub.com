@@ -1,15 +1,15 @@
-import React from 'react';
+import React from "react";
 import image from "../../assets/geograph.png";
-import './GeographicalFootprint.css'; 
+import "./GeographicalFootprint.css";
 
-const GeographicalFootprint = ({ alt, className }) => {
+const GeographicalFootprint = () => {
   return (
-    <img
-      src={image}
-      alt={alt}
-      className={`object-cover ${className} fade-in rounded-3xl`} 
-    />
+    <div className="geographical-container">
+      <img src={image} alt="Geographical Footprint" className="geographical-image rounded-3xl" />
+      <div className="overlay">🌍 Global Reach, Local Impact</div>
+    </div>
   );
 };
 
 export default GeographicalFootprint;
+

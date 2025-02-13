@@ -4,7 +4,7 @@ import { FaTools, FaCodeBranch, FaCogs, FaShieldAlt, FaCloud, FaServer } from 'r
 const Competencies = () => {
   return (
     <div className="min-h-screen flex items-center justify-center py-12">
-      <div className="bg-white p-12 rounded-3xl shadow-2xl max-w-6xl w-full">
+      <div className="bg-white p-12 rounded-3xl  max-w-6xl w-full">
         <h1 className="text-4xl font-extrabold text-center text-gray-900 mb-6 tracking-wide">DevOps Competencies</h1>
         <p className="text-lg text-gray-600 text-center mb-12 font-light">
           Enhancing development and operations through automation, efficiency, and scalability.
