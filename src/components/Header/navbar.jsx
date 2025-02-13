@@ -4,7 +4,7 @@ import { MdWbSunny, MdNightsStay } from 'react-icons/md';
 import { FaChevronDown } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
 import logo from '../../assets/softopshub.png';
-import image from '../../assets/success-2917048_1280.jpg';
+import image from '../../assets/success-2917048_1280.webp';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);

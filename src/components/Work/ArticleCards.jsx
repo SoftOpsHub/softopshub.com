@@ -1,10 +1,10 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import image from "../../assets/richy-great-MAYEkmn7G6E-unsplash.jpg"
-import image1 from "../../assets/Test Automation.jpg"
-import image2 from "../../assets/ Microservices with Kubernetes.jpg"
-import image3 from "../../assets/CI.CD Pipelines.jpg"
-import image4 from "../../assets/Optimizing.jpg"
+import image1 from "../../assets/Test Automation.webp"
+import image2 from "../../assets/ Microservices with Kubernetes.webp"
+import image3 from "../../assets/CI.CD Pipelines.webp"
+import image4 from "../../assets/Optimizing.webp"
 const articles = [
   {
     title: "How GitHub Actions, Kustomize, And ArgoCD Revolutionized Controlled Deployment",

@@ -1,5 +1,5 @@
 import React from "react";
-import image5 from "../../assets/conversation.jpg";
+import image5 from "../../assets/conversation.webp";
 import image6 from "../../assets/Docker.jpg";
 
 const Card = ({ image, tag, title, author, readTime }) => {

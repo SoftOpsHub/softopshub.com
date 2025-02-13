@@ -1,8 +1,8 @@
 import React from 'react';
-import officeView from '../../assets/officeview.jpg';
-import meeting from '../../assets/meeting.jpg';
-import working from '../../assets/working.jpg';
-import conversation from '../../assets/conversation.jpg';
+import officeView from '../../assets/officeview.webp';
+import meeting from '../../assets/meeting.webp';
+import working from '../../assets/working.webp';
+import conversation from '../../assets/conversation.webp';
 
 const ImageGrid = () => {
   const imageSources = [
