@@ -43,7 +43,7 @@ const teamMembers = [
     name: "Sharjeel Shahihd",
     title: "DevOps Engineer",
     description:
-      "I’m DevOps Engineer passionate about delivering scalable, secure, and automated solutions...",
+      "DevOps Engineer passionate about delivering scalable, secure, and automated solutions...",
     image: Image4,
     linkedin: "https://www.linkedin.com/in/sharjeel-shahid-660124278/",
     twitter: "#",
