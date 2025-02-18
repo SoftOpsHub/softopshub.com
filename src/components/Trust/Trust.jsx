@@ -1,36 +1,45 @@
-import React from "react";
-import { FaMicrosoft, FaSalesforce } from "react-icons/fa"; 
-import { SiCisco } from "react-icons/si"; 
-import image2 from "../../assets/parlapp.png"
+import React from 'react';
+import { FaTools, FaCodeBranch, FaCogs, FaShieldAlt, FaCloud, FaServer } from 'react-icons/fa';
+import { motion } from 'framer-motion';
 
-const clients = [
-  { name: "Extreme", icon: <SiCisco size={40} />, link: "https://www.extremenetworks.com" },
-  { name: "Microsoft", icon: <FaMicrosoft size={40} />, link: "https://www.microsoft.com" },
-  { name: "Salesforce", icon: <FaSalesforce size={40} />, link: "https://www.salesforce.com" },
-  { name: "Parlapp", logo: <img src={image2} alt="Parlapp" className="w-11 h-10" />, link: "https://www.parlapp.net" }, 
+const fadeInUp = {
+  hidden: { opacity: 0, y: 50 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+};
 
-];
-
+const staggerContainer = {
+  hidden: { opacity: 1 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.2 }
+  }
+};
 
 const Trust = () => {
-  return (
-    <div className="py-16 text-black text-center">
-      <h2 className="text-4xl font-bold">We cultivate enduring relationships</h2>
-      <h2 className="text-4xl font-bold">built on trust.</h2>
-      <p className="text-lg mt-4">
-        Meet our valued clients and the long-term relationships we've nurtured.
-      </p>
+  const clients = [
+    { name: "Extreme", icon: <FaCodeBranch size={40} />, link: "https://www.extremenetworks.com" },
+    { name: "Microsoft", icon: <FaTools size={40} />, link: "https://www.microsoft.com" },
+    { name: "Salesforce", icon: <FaCogs size={40} />, link: "https://www.salesforce.com" },
+    { name: "Parlapp", icon: <FaCloud size={40} />, link: "https://www.parlapp.net" }
+  ];
 
-      <div className="flex flex-wrap justify-center gap-12 mt-10">
+  return (
+    <motion.div className="py-16 text-black text-center" initial="hidden" animate="visible" variants={staggerContainer}>
+      <motion.h2 className="text-4xl font-bold" variants={fadeInUp}>We cultivate enduring relationships</motion.h2>
+      <motion.h2 className="text-4xl font-bold" variants={fadeInUp}>built on trust.</motion.h2>
+      <motion.p className="text-lg mt-4" variants={fadeInUp}>
+        Meet our valued clients and the long-term relationships we've nurtured.
+      </motion.p>
+
+      <motion.div className="flex flex-wrap justify-center gap-12 mt-10" variants={staggerContainer}>
         {clients.map((client, index) => (
-          <a key={index} href={client.link} target="_blank" rel="noopener noreferrer" className="flex flex-col items-center">
+          <motion.a key={index} href={client.link} target="_blank" rel="noopener noreferrer" className="flex flex-col items-center" variants={fadeInUp}>
             {client.icon}
-            {client.logo}
-            <p className="mt-2 font-semibold">{client.name}</p>
-          </a>
+            <motion.p className="mt-2 font-semibold" variants={fadeInUp}>{client.name}</motion.p>
+          </motion.a>
         ))}
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };
 
