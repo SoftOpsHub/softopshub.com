@@ -115,7 +115,7 @@ const Navbar = () => {
 
                 <a href="/work" className={getLinkClass('/work')}>Our Work</a>
                 <a href="/team" className={getLinkClass('/team')}>Company</a>
-                <a href="/Careers" className={getLinkClass('/careers')}>Careers</a>
+                <a href="/CareerPage" className={getLinkClass('/careers')}>Careers</a>
                 <a href="/contact" className="bg-orange-500 text-white px-4 py-2 rounded-md hover:bg-orange-600">Contact Us</a>
                 {/* <button onClick={toggleDarkMode} className={`focus:outline-none ${darkMode ? 'text-yellow-400' : 'text-gray-800'}`}>
                   {darkMode ? <MdWbSunny size={24} /> : <MdNightsStay size={24} />}
