@@ -1,4 +1,6 @@
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaYoutube } from 'react-icons/fa';
+import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
+
 import React, { useState } from 'react';
 
 const Footer = () => {
@@ -30,32 +32,39 @@ const Footer = () => {
           </div>
           <div className="grid grid-cols-2 gap-5">
             <div>
-              <h3 className="text-lg font-semibold">Services</h3>
-              <ul>
-                <li><a href="/overview" className="hover:text-orange-500">Overview</a></li>
-                <li><a href="/genai" className="hover:text-orange-500">GenAI</a></li>
-                <li><a href="/services/cloudDevops" className="hover:text-orange-500">Cloud & DevOps</a></li>
-                <li><a href="/web-applications" className="hover:text-orange-500">Web Applications</a></li>
-                <li><a href="/network-applications" className="hover:text-orange-500">Network Applications</a></li>
-                <li><a href="/design-ux" className="hover:text-orange-500">Design, UX</a></li>
-                <li><a href="/quality-assurance" className="hover:text-orange-500">Quality Assurance</a></li>
-              </ul>
+              <div>
+                <h3 className="text-lg font-semibold">Cloud</h3>
+                <ul>
+                  <li><a href="/multi-cloud-strategy" className="hover:text-orange-500">Multi-Cloud Strategy</a></li>
+                  <li><a href="/cloud-migration" className="hover:text-orange-500">Cloud Migration</a></li>
+                  <li><a href="/serverless-computing" className="hover:text-orange-500">Serverless Computing</a></li>
+                  <li><a href="/hybrid-cloud" className="hover:text-orange-500">Hybrid & Edge Computing</a></li>
+                  <li><a href="/cloud-security" className="hover:text-orange-500">Cloud Security</a></li>
+                  <li><a href="/cloud-cost-optimization" className="hover:text-orange-500">Cloud Cost Optimization</a></li>
+                </ul>
+              </div>
             </div>
             <div>
-              <h3 className="text-lg font-semibold">AWS</h3>
+              <h3 className="text-lg font-semibold">DevOps</h3>
               <ul>
-                <li><a href="/aws-overview" className="hover:text-orange-500">Overview</a></li>
-                <li><a href="/genai-integration" className="hover:text-orange-500">GenAI Integration</a></li>
-                <li><a href="/amazon-q" className="hover:text-orange-500">Amazon Q for Business</a></li>
-                <li><a href="/ai-powered-devops" className="hover:text-orange-500">AI-Powered DevOps</a></li>
-                <li><a href="/data-foundation" className="hover:text-orange-500">Data Foundation</a></li>
-                <li><a href="/well-architected-review" className="hover:text-orange-500">Well-Architected Review</a></li>
-                <li><a href="/application-modernization" className="hover:text-orange-500">Application Modernization</a></li>
-                <li><a href="/postgresql-consulting" className="hover:text-orange-500">PostgreSQL Consulting</a></li>
-                <li><a href="/eks-consulting" className="hover:text-orange-500">EKS Consulting</a></li>
-                <li><a href="/webinars" className="hover:text-orange-500">Webinars</a></li>
+                <li><a href="/pipelines" className="hover:text-orange-500">CI/CD Pipelines</a></li>
+                <li><a href="/infrastructure" className="hover:text-orange-500">Infrastructure as Code (IaC)</a></li>
+                <li><a href="/scaling" className="hover:text-orange-500">Kubernetes Consulting</a></li>
+                <li><a href="/service" className="hover:text-orange-500">Docker & Containerization</a></li>
+                <li><a href="/home" className="hover:text-orange-500">Monitoring & Observability</a></li>
+                <li><a href="/services/cloudDevops" className="hover:text-orange-500">Configuration Management</a></li>
+                <li><a href="/services/cloudDevops" className="hover:text-orange-500">DevSecOps</a></li>
               </ul>
             </div>
+          </div>
+          <div>
+            <h3 className="text-lg font-semibold">Contact Us</h3>
+            <ul className="mt-3 space-y-2">
+              <li className="flex items-center"><FaPhoneAlt className="mr-2" /> +92-347-5322747</li>
+              <li className="flex items-center"><FaEnvelope className="mr-2" /> info@softopshub.com</li>
+              <li className="flex items-center"><FaMapMarkerAlt className="mr-2" /> Bahria Town Lahore
+                Pakistan</li>
+            </ul>
           </div>
           <div>
             <h3 className="text-lg font-semibold">Follow Us</h3>

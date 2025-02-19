@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 const CICDPipelineAI = () => {
   return (
-    <div className="w-full  bg-gray-200 text-white overflow-auto rounded-3xl">
+    <div className="w-full  bg-gray-100 text-white overflow-auto rounded-3xl">
       
       <motion.div
         className="w-full h-80 flex flex-col justify-center items-center bg-gradient-to-r from-orange-600 to-purple-700 text-center p-6"
@@ -32,7 +32,7 @@ const CICDPipelineAI = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <p className="text-lg text-gray-900 mt-4 font-bold">
+          <p className="text-lg text-gray-white mt-4 font-bold">
             AI is transforming CI/CD pipelines by predicting failures, optimizing deployment times, and automating testing.
           </p>
         </motion.div>
@@ -55,13 +55,13 @@ const CICDPipelineAI = () => {
           </motion.div>
 
           <motion.div
-            className="bg-gray-700 p-6 rounded-lg shadow-lg"
+            className="bg-white-700 p-6 rounded-lg shadow-lg"
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
           >
             <h3 className="text-2xl font-semibold text-green-400">How AI Solves It</h3>
-            <ul className="mt-3 space-y-2 text-gray-300">
+            <ul className="mt-3 space-y-2 text-gray-900">
               <li> Predictive failure detection</li>
               <li> Intelligent resource management</li>
               <li> Automated issue resolution</li>
