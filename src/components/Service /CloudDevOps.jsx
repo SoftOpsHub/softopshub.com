@@ -27,7 +27,7 @@ export default function CloudDevOps() {
 
   return (
     <div>
-     <Banner/ >
+     <Banner/>
 
       <div className="flex flex-col lg:flex-row p-6 md:p-8 bg-white">
         <div className="w-full lg:w-1/4 border-r pr-6 mb-6 lg:mb-0">

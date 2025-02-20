@@ -11,6 +11,8 @@ import Work from './pages/Work';
 import Team from './components/Team/Team';
 import Article from './components/article/DeploymentGuide'
 import Scaling from './components/Scaling/ScalingGuide'
+import ConsultingPage from './pages/ConsultingPage';
+import Training from './pages/Training';
 import Pipelines from './components/Pipelines/Pipelines'
 import InfrastructureAsCode from './components/InfrastructureAsCode/InfrastructureAsCode'
 import CareerPage from './pages/Career'
@@ -27,6 +29,8 @@ function App() {
           <Route path="/work" element={<Work />} />
           <Route path="/team" element={<Team />} />
           <Route path="/article" element={<Article />} />
+          <Route path="/consulting" element={<ConsultingPage />} />
+          <Route path="/training" element={<Training />} />
           <Route path="/scaling" element={<Scaling />} />
           <Route path="/pipelines" element={<Pipelines />} />
           <Route path="/infrastructure" element={<InfrastructureAsCode />} />

@@ -3,7 +3,7 @@ import React from "react";
 const Banner = () => {
   return (
     <div className="relative bg-teal-500 overflow-hidden h-80 flex items-center justify-center">
-      <div className="absolute inset-0 bg-gradient-to-r  from-orange-600 to-purple-700  opacity-80"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-orange-600 text-white opacity-80"></div>
       <div className="absolute inset-0 bg-[url('/wave-pattern.svg')] bg-repeat opacity-30 animate-[moveWave_10s_linear_infinite]"></div>
       
       <div className="relative text-white text-center">

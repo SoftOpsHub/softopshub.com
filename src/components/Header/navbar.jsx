@@ -61,9 +61,8 @@ const Navbar = () => {
                       </div>
                       <div>
                         <h3 className="font-extrabold text-green-700">More</h3>
-                        <a href="/services/consulting" className="block px-4 py-2 hover:bg-gray-100">Consulting</a>
-                        <a href="/services/training" className="block px-4 py-2 hover:bg-gray-100">Training</a>
-                        <a href="/services/support" className="block px-4 py-2 hover:bg-gray-100">Support & Maintenance</a>
+                        <a href="/consulting" className="block px-4 py-2 hover:bg-gray-100">Consulting</a>
+                        <a href="/training" className="block px-4 py-2 hover:bg-gray-100">Training</a>
                       </div>
                       <div className="flex flex-col items-center bg-gray-100 p-3 rounded-md">
                         <img src={image} alt="Preview" className="w-full h-40 object-cover rounded-md " />

@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 const InfrastructureAsCode = () => {
   return (
     <div className="w-full min-h-screen   text-white-900">
-      <div className="w-full h-80  bg-gradient-to-r  from-orange-600 to-purple-700 relative flex justify-center items-center">
+      <div className="w-full h-80 bg-gradient-to-r from-blue-500 to-orange-600 text-white relative flex justify-center items-center">
         <motion.h1 
           className="text-4xl font-bold text-center text-white"
           initial={{ opacity: 0, y: -50 }}

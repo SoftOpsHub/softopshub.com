@@ -3,7 +3,7 @@ import React from "react";
 const CICDPipelineAI = () => {
   return (
     <div className="w-full bg-gray-100 text-black rounded-3xl p-6">
-      <div className="w-full h-80 flex flex-col justify-center items-center bg-gradient-to-r  from-orange-600 to-purple-700  text-center text-white p-6 rounded-xl">
+      <div className="w-full h-80 flex flex-col justify-center items-center bg-gradient-to-r from-blue-500 to-orange-600 text-white p-6 rounded-xl">
         <h1 className="text-4xl font-bold">Enhancing CI/CD Pipelines with AI</h1>
         <p className="text-lg mt-4 max-w-3xl">
           Unlock efficiency, reduce deployment risks, and automate decision-making using AI-powered insights.
