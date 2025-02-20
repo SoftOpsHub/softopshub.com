@@ -4,6 +4,8 @@ import image2 from "../assets/img.png";
 import image3 from "../assets/img2.png";
 import image4 from "../assets/img3.jpeg";
 import image5 from "../assets/img4.jpeg";
+import image6 from "../assets/arbab.webp";
+import image7 from "../assets/muheeb.webp";
 import Competencies from "../components/Animation/Competencies";
 import PartnersSection from "../components/Animation/ParterSection";
 import GeographicalFootprint from "../components/Animation/GeographicalFootprint";
@@ -76,7 +78,7 @@ const HomePage = () => {
         <motion.div className="mt-10 relative" initial="hidden" animate="visible" variants={fadeInUp}>
           <h3 className="text-lg font-semibold">Leading Innovation Globally</h3>
           <div className="flex flex-wrap justify-center gap-3 mt-4">
-            {["San Jose", "Dallas", "Islamabad", "Berlin", "Dubai"].map((city, index) => (
+            {["Australia", "Saudi Arabia", "Pakistan", "Germany", "Dubai"].map((city, index) => (
               <motion.span
                 key={index}
                 className="bg-white shadow-md px-4 py-2 rounded-full text-sm font-medium transition-all duration-500 hover:scale-110"
@@ -90,9 +92,9 @@ const HomePage = () => {
 
         <motion.div className="mt-10 relative" initial="hidden" animate="visible" variants={fadeInUp}>
           <h3 className="text-lg font-semibold">Champions</h3>
-          <p className="text-3xl font-bold mt-2">330+</p>
+          <p className="text-3xl font-bold mt-2">10+</p>
           <div className="flex mt-4 space-x-[-10px]">
-            {[image1, image2, image3, image4, image5].map((img, index) => (
+            {[image1, image2, image3, image4, image5, image6, image7].map((img, index) => (
               <motion.img
                 key={index}
                 src={img}

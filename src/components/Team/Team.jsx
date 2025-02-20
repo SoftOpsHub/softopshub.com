@@ -3,8 +3,8 @@ import { motion } from "framer-motion";
 import { FaLinkedin, FaTwitter, FaEnvelope } from "react-icons/fa";
 import Image1 from "../../assets/ammar.webp";
 import Image2 from "../../assets/arbab.webp";
-import Image3 from "../../assets/muheeb.webp";
-import Image4 from "../../assets/sharjeel.webp";
+import Image3 from "../../assets/muheeb.png";
+import Image4 from "../../assets/sharjeel.png";
 import Image5 from "../../assets/img3.jpeg";
 import Image6 from "../../assets/img4.jpeg";
 
