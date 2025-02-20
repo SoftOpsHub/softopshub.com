@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaTools, FaCodeBranch, FaCogs, FaShieldAlt, FaCloud, FaServer } from 'react-icons/fa';
+import { FaTools, FaCodeBranch, FaCogs, FaCloud } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 
 const fadeInUp = {
@@ -24,18 +24,39 @@ const Trust = () => {
   ];
 
   return (
-    <motion.div className="py-16 text-black text-center" initial="hidden" animate="visible" variants={staggerContainer}>
-      <motion.h2 className="text-4xl font-bold" variants={fadeInUp}>We cultivate enduring relationships</motion.h2>
-      <motion.h2 className="text-4xl font-bold" variants={fadeInUp}>built on trust.</motion.h2>
-      <motion.p className="text-lg mt-4" variants={fadeInUp}>
+    <motion.div 
+      className="w-full flex flex-col items-center justify-center py-16 text-black text-center" 
+      initial="hidden" 
+      animate="visible" 
+      variants={staggerContainer}
+    >
+      <motion.h2 className="text-4xl font-bold" variants={fadeInUp}>
+        We cultivate enduring relationships
+      </motion.h2>
+      <motion.h2 className="text-4xl font-bold" variants={fadeInUp}>
+        built on trust.
+      </motion.h2>
+      <motion.p className="text-lg mt-4 max-w-xl" variants={fadeInUp}>
         Meet our valued clients and the long-term relationships we've nurtured.
       </motion.p>
 
-      <motion.div className="flex flex-wrap justify-center gap-12 mt-10" variants={staggerContainer}>
+      <motion.div 
+        className="flex flex-wrap justify-center items-center gap-12 mt-10 w-full max-w-4xl" 
+        variants={staggerContainer}
+      >
         {clients.map((client, index) => (
-          <motion.a key={index} href={client.link} target="_blank" rel="noopener noreferrer" className="flex flex-col items-center" variants={fadeInUp}>
+          <motion.a 
+            key={index} 
+            href={client.link} 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="flex flex-col items-center text-center" 
+            variants={fadeInUp}
+          >
             {client.icon}
-            <motion.p className="mt-2 font-semibold" variants={fadeInUp}>{client.name}</motion.p>
+            <motion.p className="mt-2 font-semibold" variants={fadeInUp}>
+              {client.name}
+            </motion.p>
           </motion.a>
         ))}
       </motion.div>

@@ -4,7 +4,7 @@ import "./GeographicalFootprint.css";
 
 const GeographicalFootprint = () => {
   return (
-    <div className="geographical-container">
+    <div className="hidden md:flex geographical-container">
       <img src={image} alt="Geographical Footprint" className="geographical-image rounded-3xl" />
       <div className="overlay">🌍 Global Reach, Local Impact</div>
     </div>
@@ -12,4 +12,3 @@ const GeographicalFootprint = () => {
 };
 
 export default GeographicalFootprint;
-
