@@ -6,7 +6,7 @@ import image4 from "../assets/img3.jpeg";
 import image5 from "../assets/img4.jpeg";
 import image6 from "../assets/arbab.webp";
 import image7 from "../assets/muheeb.webp";
-import { FullStackCompetencies, Web3Competencies } from '../components/Competencies/FullstackCompetencies/'
+// import { FullStackCompetencies, Web3Competencies } from '../components/Competencies/FullstackCompetencies/'
 import Competencies from "../components/Competencies/Competencies";
 import PartnersSection from "../components/Animation/ParterSection";
 import GeographicalFootprint from "../components/Animation/GeographicalFootprint";
@@ -109,8 +109,8 @@ const HomePage = () => {
 
       </div>
       <Competencies />
-      <FullStackCompetencies/>
-      <Web3Competencies/>
+      {/* <FullStackCompetencies/> */}
+      {/* <Web3Competencies/> */}
       <Trust />
       <GeographicalFootprint />
       <PartnersSection />
