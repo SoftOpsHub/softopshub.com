@@ -59,7 +59,7 @@ const HomePage = () => {
         </motion.h1>
 
         <motion.div className="mt-10 relative" initial="hidden" animate="visible" variants={fadeInUp}>
-          <h3 className="text-lg font-semibold">Enterprise Focus</h3>
+          <h3 className="text-lg font-semibold">Innovate & Scale</h3>
           <div className="flex flex-wrap justify-center gap-3 mt-4">
             {["Data Discovery & Cataloging", "Zero Trust", "Data Platforms", "GenAI Innovation"].map((item, index) => (
               <motion.span
