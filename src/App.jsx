@@ -16,6 +16,8 @@ import Training from './pages/Training';
 import Pipelines from './components/Pipelines/Pipelines'
 import InfrastructureAsCode from './components/InfrastructureAsCode/InfrastructureAsCode'
 import CareerPage from './pages/Career'
+import FullStackServicePage from './components/Fullstack/FullStackServicePage'
+import Web3ServicePage from './components/Webservice/Web3ServicePage'
 function App() {
   return (
     <Router>
@@ -26,6 +28,8 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path ="/services" element={<Service />} />
           <Route path ="/services/cloudDevops" element={<CloudDevops />} />
+          <Route path="/fullstack" element={<FullStackServicePage />} />
+          <Route path="/web3" element={<Web3ServicePage />} />
           <Route path="/work" element={<Work />} />
           <Route path="/team" element={<Team />} />
           <Route path="/article" element={<Article />} />

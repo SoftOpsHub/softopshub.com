@@ -82,7 +82,7 @@ export default function CloudDevOps() {
               );
             })}
           </div>
-          <Card2 />
+          {/* <Card2 /> */}
         </div>
       </div>
 
