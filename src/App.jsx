@@ -18,6 +18,7 @@ import InfrastructureAsCode from './components/InfrastructureAsCode/Infrastructu
 import CareerPage from './pages/Career'
 import FullStackServicePage from './components/Fullstack/FullStackServicePage'
 import Web3ServicePage from './components/Webservice/Web3ServicePage'
+import PrivacyPolicyPage from './pages/PrivacyPolicy';
 function App() {
   return (
     <Router>
@@ -39,6 +40,7 @@ function App() {
           <Route path="/pipelines" element={<Pipelines />} />
           <Route path="/infrastructure" element={<InfrastructureAsCode />} />
           <Route path="CareerPage" element={<CareerPage />}/>
+          <Route path="/privacyPolicy" element={<PrivacyPolicyPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
