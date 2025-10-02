@@ -1,5 +1,6 @@
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaYoutube } from 'react-icons/fa';
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 import React, { useState } from 'react';
 
@@ -78,6 +79,11 @@ const Footer = () => {
         </div>
         <div className="text-center mt-10 border-t border-gray-700 pt-5">
           <p>&copy; {new Date().getFullYear()} SoftOpsHub. All rights reserved.</p>
+          <div className="mt-3">
+            <Link to="/privacyPolicy" className="text-sm text-gray-400 hover:text-orange-500 transition">
+              Privacy Policy
+            </Link>
+          </div>
         </div>
       </footer>
     </>
