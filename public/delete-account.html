@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Account - P2P Food</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #f5f5f5;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 600px;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #d11a2a 0%, #a01520 100%);
+            padding: 30px;
+            text-align: center;
+            color: white;
+        }
+
+        .header-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-size: 30px;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .header p {
+            font-size: 14px;
+            opacity: 0.95;
+        }
+
+        .content {
+            padding: 30px;
+        }
+
+        .warning-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin-bottom: 25px;
+            border-radius: 4px;
+        }
+
+        .warning-box h3 {
+            color: #856404;
+            font-size: 16px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+
+        .warning-box p {
+            color: #856404;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 8px;
+            color: #333;
+            font-size: 14px;
+        }
+
+        .input-wrapper {
+            position: relative;
+        }
+
+        .input-prefix {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #666;
+            font-size: 14px;
+        }
+
+        input[type="tel"],
+        input[type="password"],
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+
+        input[type="tel"] {
+            padding-left: 45px;
+        }
+
+        input[type="password"] {
+            padding-right: 45px;
+        }
+
+        input:focus,
+        select:focus {
+            outline: none;
+            border-color: #d11a2a;
+        }
+
+        .toggle-password {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #666;
+            font-size: 16px;
+        }
+
+        .help-text {
+            font-size: 12px;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .error-text {
+            font-size: 12px;
+            color: #d11a2a;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .error-text.show {
+            display: block;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: flex-start;
+            margin: 25px 0;
+        }
+
+        input[type="checkbox"] {
+            margin-right: 10px;
+            margin-top: 2px;
+            cursor: pointer;
+            width: 18px;
+            height: 18px;
+            accent-color: #d11a2a;
+        }
+
+        .checkbox-label {
+            font-size: 14px;
+            color: #333;
+            line-height: 1.5;
+            cursor: pointer;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 14px;
+            background: #d11a2a;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+            display: none;
+        }
+
+        .submit-btn.visible {
+            display: block;
+        }
+
+        .submit-btn:hover:not(:disabled) {
+            background: #a01520;
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .message {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 14px;
+            display: none;
+        }
+
+        .message.show {
+            display: block;
+        }
+
+        .message.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .message.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        .info-section {
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid #eee;
+        }
+
+        .info-section h3 {
+            color: #333;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .info-steps {
+            list-style: none;
+        }
+
+        .info-step {
+            display: flex;
+            margin-bottom: 15px;
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .step-number {
+            width: 28px;
+            height: 28px;
+            background: #d11a2a;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+            flex-shrink: 0;
+            font-weight: 600;
+            font-size: 13px;
+        }
+
+        .note {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            font-size: 13px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .note strong {
+            color: #333;
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                border-radius: 8px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .header {
+                padding: 25px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-icon">
+                🗑️
+            </div>
+            <h1>Delete Your P2P Food Account</h1>
+            <p>Request permanent deletion of your account and all associated data</p>
+        </div>
+
+        <div class="content">
+            <div class="warning-box">
+                <h3>⚠️ Important Notice</h3>
+                <p>Account deletion is permanent and cannot be undone. All your data including order history, favorites, and profile information will be permanently removed from our systems.</p>
+            </div>
+
+            <form id="deletionForm">
+                <div class="form-group">
+                    <label for="mobileNumber">Mobile Number *</label>
+                    <div class="input-wrapper">
+                        <span class="input-prefix">+92</span>
+                        <input type="tel" id="mobileNumber" name="mobileNumber" required 
+                               placeholder="3001234567" maxlength="10">
+                    </div>
+                    <div class="help-text">Enter 10-digit mobile number (without +92). Example: 3001234567</div>
+                    <div id="mobileError" class="error-text"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password *</label>
+                    <div class="input-wrapper">
+                        <input type="password" id="password" name="password" required 
+                               placeholder="Enter your account password">
+                        <button type="button" class="toggle-password" id="togglePassword">
+                            👁️
+                        </button>
+                    </div>
+                    <div class="help-text">Enter your current account password (minimum 8 characters)</div>
+                    <div id="passwordError" class="error-text"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="reason">Reason for Account Deletion</label>
+                    <select id="reason" name="reason">
+                        <option value="">Please select a reason (optional)</option>
+                        <option value="privacy-concerns">Privacy concerns</option>
+                        <option value="no-longer-needed">No longer need the service</option>
+                        <option value="switching-platforms">Switching to another platform</option>
+                        <option value="technical-issues">Technical issues</option>
+                        <option value="customer-service">Customer service issues</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <div class="help-text">Help us improve by letting us know why you're leaving (optional)</div>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="confirmDelete" name="confirmDelete" required>
+                    <label for="confirmDelete" class="checkbox-label">
+                        I understand that this action is permanent and irreversible. I want to delete my P2P Food account and all associated data including order history, preferences, and personal information. *
+                    </label>
+                </div>
+                <div id="confirmError" class="error-text"></div>
+
+                <button type="submit" class="submit-btn" id="submitBtn">
+                    Submit Account Deletion Request
+                </button>
+            </form>
+
+            <div id="submitMessage" class="message"></div>
+
+            <div class="info-section">
+                <h3>What Happens Next?</h3>
+                <ul class="info-steps">
+                    <li class="info-step">
+                        <span class="step-number">1</span>
+                        <span>Your account deletion request will be submitted to our system</span>
+                    </li>
+                    <li class="info-step">
+                        <span class="step-number">2</span>
+                        <span>Our team will contact you via your registered mobile number to verify your identity</span>
+                    </li>
+                    <li class="info-step">
+                        <span class="step-number">3</span>
+                        <span>After verification, your account and all associated data will be permanently deleted within 7-10 business days</span>
+                    </li>
+                    <li class="info-step">
+                        <span class="step-number">4</span>
+                        <span>You will receive a confirmation SMS once the deletion process is complete</span>
+                    </li>
+                </ul>
+
+                <div class="note">
+                    <strong>Note:</strong> If you have any active orders or pending transactions, please contact our support team at info@softopshub.com before submitting this deletion request to ensure proper handling of your account closure. Our team will reach out to you within 24-48 hours to begin the verification process.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('deletionForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const submitMessage = document.getElementById('submitMessage');
+        const togglePassword = document.getElementById('togglePassword');
+        const passwordInput = document.getElementById('password');
+        const mobileInput = document.getElementById('mobileNumber');
+        const confirmCheckbox = document.getElementById('confirmDelete');
+
+        // Toggle password visibility
+        togglePassword.addEventListener('click', function() {
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            this.textContent = type === 'password' ? '👁️' : '🙈';
+        });
+
+        // Mobile number input - only allow digits
+        mobileInput.addEventListener('input', function(e) {
+            this.value = this.value.replace(/\D/g, '').slice(0, 10);
+            document.getElementById('mobileError').classList.remove('show');
+        });
+
+        // Clear errors on input
+        passwordInput.addEventListener('input', function() {
+            document.getElementById('passwordError').classList.remove('show');
+        });
+
+        // Show/hide submit button based on checkbox
+        confirmCheckbox.addEventListener('change', function() {
+            document.getElementById('confirmError').classList.remove('show');
+            if (this.checked) {
+                submitBtn.classList.add('visible');
+            } else {
+                submitBtn.classList.remove('visible');
+            }
+        });
+
+        // Form submission
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            // Validate form
+            let isValid = true;
+            const mobile = mobileInput.value;
+            const password = passwordInput.value;
+            const confirmDelete = confirmCheckbox.checked;
+
+            // Validate mobile number
+            if (!/^[0-9]{10}$/.test(mobile)) {
+                document.getElementById('mobileError').textContent = 'Mobile number must be exactly 10 digits';
+                document.getElementById('mobileError').classList.add('show');
+                isValid = false;
+            }
+
+            // Validate password
+            if (password.length < 8) {
+                document.getElementById('passwordError').textContent = 'Password must be at least 8 characters';
+                document.getElementById('passwordError').classList.add('show');
+                isValid = false;
+            }
+
+            // Validate confirmation
+            if (!confirmDelete) {
+                document.getElementById('confirmError').textContent = 'You must confirm the account deletion';
+                document.getElementById('confirmError').classList.add('show');
+                isValid = false;
+            }
+
+            if (!isValid) {
+                submitMessage.textContent = 'Please fix the errors before submitting.';
+                submitMessage.className = 'message error show';
+                return;
+            }
+
+            // Submit form
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Processing Request...';
+
+            try {
+                // Simulate API call (replace with actual API endpoint)
+                await new Promise(resolve => setTimeout(resolve, 1500));
+
+                submitMessage.textContent = 'Your account deletion request has been submitted successfully. Our team will review your request and contact you shortly via your registered mobile number to proceed with the account deletion process.';
+                submitMessage.className = 'message success show';
+
+                // Reset form
+                form.reset();
+                submitBtn.classList.remove('visible');
+            } catch (error) {
+                submitMessage.textContent = 'There was an error processing your request. Please try again or contact us directly at info@softopshub.com';
+                submitMessage.className = 'message error show';
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Submit Account Deletion Request';
+            }
+        });
+    </script>
+</body>
+</html>

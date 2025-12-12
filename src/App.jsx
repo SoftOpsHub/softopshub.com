@@ -41,7 +41,7 @@ function App() {
           <Route path="/pipelines" element={<Pipelines />} />
           <Route path="/infrastructure" element={<InfrastructureAsCode />} />
           <Route path="CareerPage" element={<CareerPage />} />
-          <Route path="/delete-account" element={<AccountDeletion />} />
+          {/* <Route path="/delete-account" element={<AccountDeletion />} /> */}
           <Route path="/privacyPolicy" element={<PrivacyPolicyPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
