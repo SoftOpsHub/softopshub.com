@@ -202,11 +202,11 @@ const Footer = () => {
               Privacy Policy
             </Link>
             {/* <span className="text-gray-500 mx-4">•</span> */}
-            <Link
-              to="/delete-account"
+            <a
+              href="/delete-account.html"
               className="text-sm text-gray-400 hover:text-orange-500 transition">
               Delete Account
-            </Link>
+            </a>
           </div>
         </div>
       </footer>

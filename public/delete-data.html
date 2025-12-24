@@ -368,6 +368,15 @@
                 </button>
             </form>
 
+            <!-- OTP Section - hidden until OTP requested -->
+            <div id="otpSection" style="display:none; margin-top:20px;">
+                <div class="form-group">
+                    <label for="otp">Enter OTP</label>
+                    <input type="tel" id="otp" maxlength="6" placeholder="123456" style="width:100%; padding:12px; border:1px solid #ddd; border-radius:8px;" />
+                </div>
+                <button id="confirmDataBtn" class="btn-submit visible" style="background:#f59e0b;">Confirm & Delete Data</button>
+            </div>
+
             <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #e1e8ed; font-size: 12px; color: #666; text-align: center;">
                 Need help? Contact us at <a href="mailto:info@softopshub.com" style="color: #667eea;">info@softopshub.com</a>
             </div>
@@ -382,24 +391,25 @@
         const submitBtn = document.getElementById('submitBtn');
         const togglePasswordBtn = document.getElementById('togglePassword');
         const successMessage = document.getElementById('successMessage');
+        const otpSection = document.getElementById('otpSection');
+        const otpInput = document.getElementById('otp');
+        const confirmDataBtn = document.getElementById('confirmDataBtn');
 
-        // Only allow digits in mobile number
+        let isOtpRequested = false;
+
         mobileInput.addEventListener('input', function(e) {
             this.value = this.value.replace(/\D/g, '').slice(0, 10);
         });
 
-        // Toggle password visibility
         togglePasswordBtn.addEventListener('click', function() {
             const type = passwordInput.type === 'password' ? 'text' : 'password';
             passwordInput.type = type;
             this.textContent = type === 'password' ? '👁️' : '🙈';
         });
 
-        // Validate mobile number
         function validateMobile() {
             const mobileError = document.getElementById('mobileError');
             const isValid = /^[0-9]{10}$/.test(mobileInput.value);
-            
             if (!isValid && mobileInput.value.length > 0) {
                 mobileInput.classList.add('error');
                 mobileError.classList.add('show');
@@ -407,15 +417,12 @@
                 mobileInput.classList.remove('error');
                 mobileError.classList.remove('show');
             }
-            
             return isValid;
         }
 
-        // Validate password
         function validatePassword() {
             const passwordError = document.getElementById('passwordError');
             const isValid = passwordInput.value.length >= 8;
-            
             if (!isValid && passwordInput.value.length > 0) {
                 passwordInput.classList.add('error');
                 passwordError.classList.add('show');
@@ -423,14 +430,12 @@
                 passwordInput.classList.remove('error');
                 passwordError.classList.remove('show');
             }
-            
             return isValid;
         }
 
         mobileInput.addEventListener('blur', validateMobile);
         passwordInput.addEventListener('blur', validatePassword);
 
-        // Show/hide submit button based on checkbox
         confirmCheckbox.addEventListener('change', function() {
             if (this.checked) {
                 submitBtn.classList.add('visible');
@@ -439,38 +444,70 @@
             }
         });
 
-        // Handle form submission
+        // Request OTP for data deletion
         form.addEventListener('submit', async function(e) {
             e.preventDefault();
-
-            // Validate all fields
             const isMobileValid = validateMobile();
             const isPasswordValid = validatePassword();
-
             if (!isMobileValid || !isPasswordValid || !confirmCheckbox.checked) {
                 alert('Please fill all required fields correctly and confirm the deletion.');
                 return;
             }
-
-            // Disable submit button
             submitBtn.disabled = true;
-            submitBtn.textContent = 'Processing Request...';
-
+            submitBtn.textContent = 'Requesting OTP...';
+            const API_URL = window.__API_URL__ || 'http://localhost:3001';
             try {
-                // Simulate API call (replace with actual API endpoint)
-                await new Promise(resolve => setTimeout(resolve, 1500));
-
-                // Show success message
-                successMessage.classList.add('show');
-                form.style.display = 'none';
-
-                // Reset form
-                form.reset();
-            } catch (error) {
-                alert('There was an error processing your request. Please try again or contact us at info@softopshub.com');
-            } finally {
+                const payload = { phoneNumber: '+92' + mobileInput.value, password: passwordInput.value };
+                const res = await fetch(`${API_URL}/api/v1/web/request-delete-otp`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload),
+                });
+                const data = await res.json();
+                if (!res.ok) throw new Error(data?.message || 'Failed to request OTP');
+                isOtpRequested = true;
+                if (otpSection) otpSection.style.display = 'block';
                 submitBtn.disabled = false;
                 submitBtn.textContent = 'Submit Data Deletion Request';
+                setTimeout(() => { if (otpInput) otpInput.focus(); }, 100);
+            } catch (err) {
+                alert(err?.message || 'There was an error requesting OTP. Please try again.');
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Submit Data Deletion Request';
+            }
+        });
+
+        // Confirm data deletion using OTP
+        confirmDataBtn.addEventListener('click', async function(e) {
+            e.preventDefault();
+            if (!isOtpRequested) {
+                alert('Please request OTP first.');
+                return;
+            }
+            const otp = (otpInput && otpInput.value || '').replace(/\D/g, '').slice(0, 6);
+            if (!otp || otp.length < 4) {
+                alert('Please enter the OTP sent to your phone.');
+                return;
+            }
+            if (confirmDataBtn) confirmDataBtn.disabled = true;
+            const API_URL = window.__API_URL__ || 'http://localhost:3001';
+            try {
+                const payload = { phoneNumber: '+92' + mobileInput.value, otp };
+                const res = await fetch(`${API_URL}/api/v1/web/delete-my-data`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload),
+                });
+                const data = await res.json();
+                if (!res.ok) throw new Error(data?.message || 'Failed to delete data');
+                if (successMessage) successMessage.classList.add('show');
+                if (form) form.style.display = 'none';
+                if (otpSection) otpSection.style.display = 'none';
+                form.reset();
+            } catch (err) {
+                alert(err?.message || 'There was an error processing your request. Please try again.');
+            } finally {
+                if (confirmDataBtn) confirmDataBtn.disabled = false;
             }
         });
     </script>
