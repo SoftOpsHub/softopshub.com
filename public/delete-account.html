@@ -376,6 +376,15 @@
 
             <div id="submitMessage" class="message"></div>
 
+            <!-- OTP Section - hidden until OTP requested -->
+            <div id="otpSection" style="display:none; margin-top:20px;">
+                <div class="form-group">
+                    <label for="otp">Enter OTP</label>
+                    <input type="tel" id="otp" maxlength="6" placeholder="123456" style="width:100%; padding:12px; border:1px solid #ddd; border-radius:8px;" />
+                </div>
+                <button id="confirmAccountBtn" class="submit-btn visible" style="background:#d11a2a;">Confirm & Delete Account</button>
+            </div>
+
             <div class="info-section">
                 <h3>What Happens Next?</h3>
                 <ul class="info-steps">
@@ -405,6 +414,7 @@
     </div>
 
     <script>
+        // Elements
         const form = document.getElementById('deletionForm');
         const submitBtn = document.getElementById('submitBtn');
         const submitMessage = document.getElementById('submitMessage');
@@ -412,6 +422,11 @@
         const passwordInput = document.getElementById('password');
         const mobileInput = document.getElementById('mobileNumber');
         const confirmCheckbox = document.getElementById('confirmDelete');
+        const otpSection = document.getElementById('otpSection');
+        const otpInput = document.getElementById('otp');
+        const confirmAccountBtn = document.getElementById('confirmAccountBtn');
+
+        let isOtpRequested = false;
 
         // Toggle password visibility
         togglePassword.addEventListener('click', function() {
@@ -441,63 +456,110 @@
             }
         });
 
-        // Form submission
+        // Helper validators
+        function validateMobile(value) {
+            return /^[0-9]{10}$/.test(value);
+        }
+
+        function validatePassword(value) {
+            return value && value.length >= 8;
+        }
+
+        // Form submit -> request OTP for account deletion
         form.addEventListener('submit', async function(e) {
             e.preventDefault();
-            
-            // Validate form
+
             let isValid = true;
             const mobile = mobileInput.value;
             const password = passwordInput.value;
-            const confirmDelete = confirmCheckbox.checked;
+            const confirmDel = confirmCheckbox.checked;
 
-            // Validate mobile number
-            if (!/^[0-9]{10}$/.test(mobile)) {
+            if (!validateMobile(mobile)) {
                 document.getElementById('mobileError').textContent = 'Mobile number must be exactly 10 digits';
                 document.getElementById('mobileError').classList.add('show');
                 isValid = false;
             }
-
-            // Validate password
-            if (password.length < 8) {
+            if (!validatePassword(password)) {
                 document.getElementById('passwordError').textContent = 'Password must be at least 8 characters';
                 document.getElementById('passwordError').classList.add('show');
                 isValid = false;
             }
-
-            // Validate confirmation
-            if (!confirmDelete) {
+            if (!confirmDel) {
                 document.getElementById('confirmError').textContent = 'You must confirm the account deletion';
                 document.getElementById('confirmError').classList.add('show');
                 isValid = false;
             }
-
             if (!isValid) {
                 submitMessage.textContent = 'Please fix the errors before submitting.';
                 submitMessage.className = 'message error show';
                 return;
             }
 
-            // Submit form
+            // Request OTP via backend
             submitBtn.disabled = true;
-            submitBtn.textContent = 'Processing Request...';
-
+            submitBtn.textContent = 'Requesting OTP...';
+            const API_URL = window.__API_URL__ || 'http://localhost:3001';
             try {
-                // Simulate API call (replace with actual API endpoint)
-                await new Promise(resolve => setTimeout(resolve, 1500));
-
-                submitMessage.textContent = 'Your account deletion request has been submitted successfully. Our team will review your request and contact you shortly via your registered mobile number to proceed with the account deletion process.';
+                const payload = { phoneNumber: '+92' + mobile, password };
+                const res = await fetch(`${API_URL}/api/v1/web/request-delete-otp`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload),
+                });
+                const data = await res.json();
+                if (!res.ok) throw new Error(data?.message || 'Failed to request OTP');
+                isOtpRequested = true;
+                if (otpSection) otpSection.style.display = 'block';
+                submitMessage.textContent = data?.message || 'OTP sent successfully. Please enter the OTP to confirm account deletion.';
                 submitMessage.className = 'message success show';
-
-                // Reset form
-                form.reset();
-                submitBtn.classList.remove('visible');
-            } catch (error) {
-                submitMessage.textContent = 'There was an error processing your request. Please try again or contact us directly at info@softopshub.com';
+                setTimeout(() => { if (otpInput) otpInput.focus(); }, 100);
+            } catch (err) {
+                submitMessage.textContent = err?.message || 'Error requesting OTP. Please try again.';
                 submitMessage.className = 'message error show';
             } finally {
                 submitBtn.disabled = false;
                 submitBtn.textContent = 'Submit Account Deletion Request';
+            }
+        });
+
+        // Confirm account deletion using OTP
+        confirmAccountBtn.addEventListener('click', async function(e) {
+            e.preventDefault();
+            if (!isOtpRequested) {
+                submitMessage.textContent = 'Please request OTP first.';
+                submitMessage.className = 'message error show';
+                return;
+            }
+            const otp = (otpInput && otpInput.value || '').replace(/\D/g, '').slice(0, 6);
+            if (!otp || otp.length < 4) {
+                submitMessage.textContent = 'Please enter the OTP sent to your phone.';
+                submitMessage.className = 'message error show';
+                return;
+            }
+
+            if (confirmAccountBtn) confirmAccountBtn.disabled = true;
+            const API_URL = window.__API_URL__ || 'http://localhost:3001';
+            try {
+                const phoneNumber = '+92' + (mobileInput.value || '');
+                const payload = { phoneNumber, otp };
+                const res = await fetch(`${API_URL}/api/v1/web/delete-my-account`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload),
+                });
+                const data = await res.json();
+                if (!res.ok) throw new Error(data?.message || 'Failed to delete account');
+                submitMessage.textContent = data?.message || 'Account deleted successfully';
+                submitMessage.className = 'message success show';
+                // reset
+                if (form) form.reset();
+                if (otpSection) otpSection.style.display = 'none';
+                isOtpRequested = false;
+            } catch (err) {
+                submitMessage.textContent = err?.message || 'There was an error processing your request. Please try again.';
+                submitMessage.className = 'message error show';
+            } finally {
+                if (confirmAccountBtn) confirmAccountBtn.disabled = false;
             }
         });
     </script>
