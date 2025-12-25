@@ -424,6 +424,7 @@
         </div>
     </div>
 
+    <script src="/config.js"></script>
     <script>
         // Elements
         const form = document.getElementById('deletionForm');
@@ -509,7 +510,7 @@
             // Request OTP via backend
             submitBtn.disabled = true;
             submitBtn.textContent = 'Requesting OTP...';
-            const API_URL = window.__API_URL__ || 'http://localhost:3001';
+            const API_URL = window.__API_URL__ || 'http://p2p.ngrok.app';
             try {
                 const payload = { phoneNumber: '+92' + mobile, password };
                 const res = await fetch(`${API_URL}/api/v1/web/request-delete-otp`, {
@@ -549,7 +550,7 @@
             }
 
             if (confirmAccountBtn) confirmAccountBtn.disabled = true;
-            const API_URL = window.__API_URL__ || 'http://localhost:3001';
+            const API_URL = window.__API_URL__ || 'http://p2p.ngrok.app';
             try {
                 const phoneNumber = '+92' + (mobileInput.value || '');
                 const payload = { phoneNumber, otp };

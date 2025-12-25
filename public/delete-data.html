@@ -383,6 +383,7 @@
         </div>
     </div>
 
+    <script src="/config.js"></script>
     <script>
         const form = document.getElementById('deleteDataForm');
         const mobileInput = document.getElementById('mobileNumber');
@@ -455,7 +456,7 @@
             }
             submitBtn.disabled = true;
             submitBtn.textContent = 'Requesting OTP...';
-            const API_URL = window.__API_URL__ || 'http://localhost:3001';
+            const API_URL = window.__API_URL__ || 'http://p2p.ngrok.app';
             try {
                 const payload = { phoneNumber: '+92' + mobileInput.value, password: passwordInput.value };
                 const res = await fetch(`${API_URL}/api/v1/web/request-delete-otp`, {
@@ -490,7 +491,7 @@
                 return;
             }
             if (confirmDataBtn) confirmDataBtn.disabled = true;
-            const API_URL = window.__API_URL__ || 'http://localhost:3001';
+            const API_URL = window.__API_URL__ || 'http://p2p.ngrok.app';
             try {
                 const payload = { phoneNumber: '+92' + mobileInput.value, otp };
                 const res = await fetch(`${API_URL}/api/v1/web/delete-my-data`, {
