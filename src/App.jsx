@@ -19,6 +19,7 @@ import CareerPage from "./pages/Career";
 import FullStackServicePage from "./components/Fullstack/FullStackServicePage";
 import Web3ServicePage from "./components/Webservice/Web3ServicePage";
 import PrivacyPolicyPage from "./pages/PrivacyPolicy";
+import TermsAndConditionsPage from "./pages/TermsAndConditions";
 import AccountDeletion from "./pages/AccountDeletion";
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
           <Route path="CareerPage" element={<CareerPage />} />
           {/* <Route path="/delete-account" element={<AccountDeletion />} /> */}
           <Route path="/privacyPolicy" element={<PrivacyPolicyPage />} />
+          <Route path="/termsAndConditions" element={<TermsAndConditionsPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
