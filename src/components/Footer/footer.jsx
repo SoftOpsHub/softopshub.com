@@ -201,11 +201,11 @@ const Footer = () => {
               className="text-sm text-gray-400 hover:text-orange-500 transition">
               Privacy Policy
             </Link>
-            <a
-              href="/termsAndConditions"
+            <Link
+              to="/termsAndConditions"
               className="text-sm text-gray-400 hover:text-orange-500 transition">
               Terms and Conditions
-            </a>
+            </Link>
             {/* <span className="text-gray-500 mx-4">•</span> */}
             <a
               href="/delete-account.html"
