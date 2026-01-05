@@ -7,8 +7,11 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build && cp dist/index.html dist/404.html",
+    "build:admin": "cd ../p2pfood-admin && npm run build",
+    "build:all": "npm run build && npm run build:admin && mkdir -p dist/p2pfood-admin && cp -r ../p2pfood-admin/out/* dist/p2pfood-admin/",
     "lint": "eslint .",
     "preview": "vite preview",
+    "preview:all": "npm run build:all && cd dist && python3 -m http.server 8000",
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
