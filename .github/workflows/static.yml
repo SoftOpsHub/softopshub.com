@@ -46,6 +46,7 @@ jobs:
         with:
           repository: SoftOpsHub/p2pfood-admin
           path: p2pfood-admin
+          token: ${{ secrets.GH_PAT }}
           
       - name: Install admin dependencies
         run: |
