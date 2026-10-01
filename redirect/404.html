@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>SoftOps has moved to softops.tech</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="canonical" href="https://softops.tech/">
+<meta name="robots" content="noindex">
+<script>
+  // softopshub.com → softops.tech. This file is also published as 404.html, so every path lands
+  // here; old routes go to the matching section of the new site.
+  (function () {
+    var p = location.pathname, to = "";
+    if (/^\/contact/i.test(p)) to = "#contact";
+    else if (/^\/work/i.test(p)) to = "#work";
+    else if (/^\/(team|careerpage|article)/i.test(p)) to = "#company";
+    else if (/^\/(services|fullstack|web3|consulting|training|scaling|pipelines|infrastructure)/i.test(p)) to = "#capabilities";
+    location.replace("https://softops.tech/" + to);
+  })();
+</script>
+<meta http-equiv="refresh" content="0; url=https://softops.tech/">
+<style>body{margin:0;min-height:100vh;display:grid;place-items:center;background:#0b0b0c;color:#ededef;font:16px/1.5 system-ui,sans-serif}a{color:inherit}</style>
+</head>
+<body>
+<p>SoftOps has moved to <a href="https://softops.tech/">softops.tech</a>.</p>
+</body>
+</html>
