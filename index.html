@@ -2,6 +2,26 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <!--
+      softopshub.com has moved to softops.tech. Company pages redirect there (index.html is also
+      served as 404.html, so this covers every route). P2P Food's app-store pages and admin panel
+      stay here because the published app links to them: privacy policy, terms, account and data
+      deletion, and /p2pfood-admin/.
+    -->
+    <script>
+      (function () {
+        var path = location.pathname;
+        var keep = /^\/(privacyPolicy|termsAndConditions|delete-account|delete-data|p2pfood-admin)(\/|\.html|$)/i;
+        if (keep.test(path)) return;
+        var to = "";
+        if (/^\/contact/i.test(path)) to = "#contact";
+        else if (/^\/work/i.test(path)) to = "#work";
+        else if (/^\/(team|careerpage|article)/i.test(path)) to = "#company";
+        else if (/^\/(services|fullstack|web3|consulting|training|scaling|pipelines|infrastructure)/i.test(path)) to = "#capabilities";
+        location.replace("https://softops.tech/" + to);
+      })();
+    </script>
+    <noscript><meta http-equiv="refresh" content="0; url=https://softops.tech/"></noscript>
     
     <link rel="icon" href="src/assets/favicon-16x16.png">
     <meta name="google-site-verification" content="2ghkrljpwFV0YRanCHNuOluODVDQLEt-ywsmYWxWD8E" />
